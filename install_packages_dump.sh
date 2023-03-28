@@ -1,18 +1,7 @@
 #!/usr/bin/env bash
 
 clear
-echo "INSTALLING PACKAGES FOR EPITECH'S DUMP"
-if [[ $EUID -ne 0 ]]; then
-   echo "This script must be run as root" 1>&2
-   exit 1
-fi
-cat /etc/fedora-release | grep "Fedora release 34"
-if [[ $? -ne 0 ]]; then
-    echo "This script must be run onto a Fedora 34";
-    exit 1
-fi
-echo "Press ENTER to continue..."
-read
+echo "INSTALLING PACKAGES FOR EPITECH'S DUMP FEDORA aarch64"
 
 rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sh -c 'echo -e "[teams]\nname=teams\nbaseurl=https://packages.microsoft.com/yumrepos/ms-teams\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/teams.repo'
@@ -20,60 +9,57 @@ dnf -y install dnf-plugins-core && dnf -y install https://download1.rpmfusion.or
 
 dnf upgrade -y
 
-packages_list=(boost-devel.x86_64
-               boost-static.x86_64
+packages_list=(boost-devel.aarch64
+               boost-static.aarch64
                ca-certificates.noarch
-               clang.x86_64
-               cmake.x86_64
-               CUnit-devel.x86_64
-               curl.x86_64
-               flac-devel.x86_64
-               freetype-devel.x86_64
-               gcc.x86_64
-               gcc-c++.x86_64
-               gdb.x86_64
+               clang.aarch64
+               cmake.aarch64
+               CUnit-devel.aarch64
+               curl.aarch64
+               flac-devel.aarch64
+               freetype-devel.aarch64
+               gcc.aarch64
+               gcc-c++.aarch64
+               gdb.aarch64
                git
-               glibc.x86_64
-               glibc-devel.x86_64
-               glibc-locale-source.x86_64
-               gmp-devel.x86_64
-               ksh.x86_64
-               elfutils-libelf-devel.x86_64
-               libjpeg-turbo-devel.x86_64
-               libvorbis-devel.x86_64
-               SDL2.x86_64
-               SDL2-static.x86_64
-               SDL2-devel.x86_64
-               libX11-devel.x86_64
-               libXext-devel.x86_64
-               ltrace.x86_64
-               make.x86_64
-               nasm.x86_64
-               ncurses.x86_64
-               ncurses-devel.x86_64
-               ncurses-libs.x86_64
-               net-tools.x86_64
-               openal-soft-devel.x86_64
-               python3-numpy.x86_64
-               python3.x86_64
-               rlwrap.x86_64
-               ruby.x86_64
-               strace.x86_64
-               tar.x86_64
-               tcsh.x86_64
-               tmux.x86_64
-               sudo.x86_64
-               tree.x86_64
-               unzip.x86_64
-               valgrind.x86_64
+               glibc.aarch64
+               glibc-devel.aarch64
+               glibc-locale-source.aarch64
+               gmp-devel.aarch64
+               ksh.aarch64
+               elfutils-libelf-devel.aarch64
+               libjpeg-turbo-devel.aarch64
+               libvorbis-devel.aarch64
+               libX11-devel.aarch64
+               libXext-devel.aarch64
+               ltrace.aarch64
+               make.aarch64
+               nasm.aarch64
+               ncurses.aarch64
+               ncurses-devel.aarch64
+               ncurses-libs.aarch64
+               net-tools.aarch64
+               openal-soft-devel.aarch64
+               python3-numpy.aarch64
+               python3.aarch64
+               rlwrap.aarch64
+               ruby.aarch64
+               strace.aarch64
+               tar.aarch64
+               tcsh.aarch64
+               tmux.aarch64
+               sudo.aarch64
+               tree.aarch64
+               unzip.aarch64
+               valgrind.aarch64
                vim
                emacs-nox
-               which.x86_64
-               xcb-util-image.x86_64
-               xcb-util-image-devel.x86_64
-               zip.x86_64
-               zsh.x86_64
-               avr-gcc.x86_64
+               which.aarch64
+               xcb-util-image.aarch64
+               xcb-util-image-devel.aarch64
+               zip.aarch64
+               zsh.aarch64
+               avr-gcc.aarch64
                qt-devel
                docker
                docker-compose
@@ -95,37 +81,40 @@ packages_list=(boost-devel.x86_64
                golang
                systemd-devel
                libgudev-devel
-               php.x86_64
-               php-devel.x86_64
-               php-bcmath.x86_64
-               php-cli.x86_64
-               php-gd.x86_64
-               php-mbstring.x86_64
-               php-mysqlnd.x86_64
-               php-pdo.x86_64
+               php.aarch64
+               php-devel.aarch64
+               php-bcmath.aarch64
+               php-cli.aarch64
+               php-gd.aarch64
+               php-mbstring.aarch64
+               php-mysqlnd.aarch64
+               php-pdo.aarch64
                php-pear.noarch
-               php-xml.x86_64
+               php-xml.aarch64
                php-gettext-gettext.noarch
                php-phar-io-version.noarch
                php-theseer-tokenizer.noarch
-               SFML.x86_64
-               SFML-devel.x86_64
-               CSFML.x86_64
-               CSFML-devel.x86_64
-               irrlicht.x86_64
-               irrlicht-devel.x86_64
-               rust.x86_64
-               cargo.x86_64
-               mariadb-server.x86_64
-               x264.x86_64
-               lightspark.x86_64
-               lightspark-mozilla-plugin.x86_64
-               teams.x86_64)
+               SFML.aarch64
+               SFML-devel.aarch64
+               CSFML.aarch64
+               CSFML-devel.aarch64
+               irrlicht.aarch64
+               irrlicht-devel.aarch64
+               rust.aarch64
+               cargo.aarch64
+               mariadb-server.aarch64
+               x264.aarch64
+               lightspark.aarch64
+               lightspark-mozilla-plugin.aarch64
+               teams.aarch64
+               SDL2.aarch64
+               SDL2-devel.aarch64
+               SDL2_image.aarch64)
 
 dnf -y install ${packages_list[@]}
 
 # Criterion
-curl -sSL "https://github.com/Snaipe/Criterion/releases/download/v2.4.0/criterion-2.4.0-linux-x86_64.tar.xz" -o criterion-2.4.0.tar.xz
+curl -sSL "https://github.com/Snaipe/Criterion/releases/download/v2.4.0/criterion-2.4.0-linux-aarch64.tar.xz" -o criterion-2.4.0.tar.xz
 tar xf criterion-2.4.0.tar.xz
 cp -r criterion-2.4.0/* /usr/local/
 echo "/usr/local/lib" > /etc/ld.so.conf.d/usr-local.conf
